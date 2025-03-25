@@ -44,13 +44,13 @@ const Login = () => {
     return (
         <div className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
             <div className="relative py-3 sm:max-w-xl sm:mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-blue-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
-                <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-300 to-red-600 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl"></div>
+                <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20 bg-gradient-to-r from-blue-100 to-brack">
                     <div className="max-w-md mx-auto">
                         <h1 className="text-2xl font-semibold">Login Form</h1>
                         {error && <p className="text-red-500">{error}</p>}
-                        <form onSubmit={handleLogin} className="py-8 space-y-4">
-                            <div className="relative">
+                        <form onSubmit={handleLogin} className="py-8 space-y-4 ">
+                            <div className="relative bg-blue">
                                 <input
                                     type="email"
                                     placeholder="Email address"
@@ -77,8 +77,8 @@ const Login = () => {
                         </form>
                         <hr />
                         <div className='flex w-full items-center flex-col mt-5 gap-3'>
-                            <button onClick={handleGoogleLogin} className='block'>
-                                <img src={googLogo} className='w-12 h-12 inline-block' alt="Google Logo"/> Login with Google
+                            <button onClick={handleGoogleLogin} className='flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-all duration-300'>
+                                <img src="https://www.figma.com/community/resource/abed920a-e3d0-48eb-bfe1-bf263fc25bae/thumbnail" className='w-6 h-6' alt="Google Logo"/> Login with Google
                             </button>
                         </div>
                     </div>

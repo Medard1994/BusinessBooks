@@ -33,7 +33,7 @@ const ManageBooks = () => {
   };
 
   return (
-    <div className="ml-48 px-4 my-12">
+    <div className="ml-48 px-4 my-12 -mt-[100px]">
       <h2 className="text-3xl font-bold mb-8">Manage Books Page</h2>
       <table className="min-w-full border-collapse border border-gray-300">
         <thead className="bg-gray-200">

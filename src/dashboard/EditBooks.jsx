@@ -64,7 +64,7 @@ const EditBooks = () => {
   };
 
   return (
-    <div className="ml-56 flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="ml-56 flex justify-center items-center min-h-screen bg-gray-100 -mt-[100px]">
       <div className="bg-white p-10 rounded-lg shadow-md w-full max-w-5xl">
         <h2 className="text-3xl font-bold mb-6 text-center">Update the Book Data</h2>
         <form className="grid grid-cols-1 sm:grid-cols-2 gap-6" onSubmit={handleSubmit}>

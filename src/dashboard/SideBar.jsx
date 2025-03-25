@@ -18,7 +18,7 @@ const SideBar = () => {
   const { user } = useContext(AuthContext);
 
   return (
-    <div className="h-screen flex">
+    <div className="h-screen flex -mt-[100px]">
       {/* Sidebar */}
       <div className="h-screen w-48 bg-gray-100 text-gray-800 shadow-md fixed">
         <Sidebar aria-label="Sidebar with navigation">

@@ -1,27 +1,29 @@
 import React from "react";
-import { HiUsers, HiBookOpen, HiShoppingBag, HiCash, HiPlusCircle } from "react-icons/hi";
+import { HiUsers, HiBookOpen, HiShoppingBag, HiCash } from "react-icons/hi";
 import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   return (
-    <div className="p-6 dark:bg-gray-900 dark:text-white ml-[200px]">
+    <div className="p-6 bg-gradient-to-br from-gray-100 to-gray-300 dark:from-gray-900 dark:to-gray-800 min-h-screen ml-[200px] ">
       {/* Header */}
-      <div className="mb-6">
-        <h1 className="text-2xl font-semibold">📊 Admin Dashboard</h1>
-        <p className="text-gray-600 dark:text-gray-300">Manage books, users, and track business performance.</p>
+      <div className="mb-8 text-center">
+        <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-white">📊 Admin Dashboard</h1>
+        <p className="text-gray-700 dark:text-gray-300 text-lg">Effortlessly manage books, users, and orders.</p>
       </div>
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {[{ icon: HiUsers, label: "Total Users", value: "1,245", color: "blue" },
-          { icon: HiBookOpen, label: "Total Books", value: "320", color: "green" },
-          { icon: HiShoppingBag, label: "Total Orders", value: "812", color: "yellow" },
-          { icon: HiCash, label: "Total Revenue", value: "$24,560", color: "red" }]
+        {[{ icon: HiUsers, label: "Total Users", value: "1,245", color: "bg-blue-500" },
+          { icon: HiBookOpen, label: "Total Books", value: "320", color: "bg-green-500" },
+          { icon: HiShoppingBag, label: "Total Orders", value: "812", color: "bg-yellow-500" },
+          { icon: HiCash, label: "Total Revenue", value: "$24,560", color: "bg-red-500" }]
           .map(({ icon: Icon, label, value, color }, index) => (
-            <div key={index} className={`p-4 bg-gradient-to-r from-${color}-100 to-${color}-300 shadow-md rounded-lg flex items-center space-x-4 transition-transform transform hover:scale-105`}>
-              <Icon className={`text-${color}-500 text-4xl`} />
+            <div key={index} className="p-6 rounded-xl shadow-lg backdrop-blur-md bg-white/70 dark:bg-gray-900/80 hover:shadow-xl transition-all transform hover:scale-105 flex items-center space-x-4">
+              <div className={`p-4 rounded-full ${color} text-white shadow-md`}>
+                <Icon className="text-3xl sm:text-4xl" />
+              </div>
               <div>
-                <h2 className="text-lg font-semibold">{label}</h2>
+                <h2 className="text-lg font-semibold text-gray-800 dark:text-white">{label}</h2>
                 <p className="text-gray-600 dark:text-gray-300">{value}</p>
               </div>
             </div>
@@ -29,29 +31,23 @@ const Dashboard = () => {
       </div>
 
       {/* Recent Activity & Quick Actions */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mt-10">
         {/* Recent Activity */}
-        <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-4">
-          <h2 className="text-lg font-semibold mb-3">📢 Recent Activity</h2>
-          <ul className="text-gray-600 dark:text-gray-300 space-y-2">
-            <li>📚 New book added: <strong>"The Art of React"</strong></li>
-            <li>👤 New user registered: <strong></strong></li>
-            <li>🛒 Order placed by <strong></strong></li>
+        <div className="p-6 rounded-xl shadow-lg backdrop-blur-md bg-white/70 dark:bg-gray-900/80">
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white mb-3">📢 Recent Activity</h2>
+          <ul className="text-gray-600 dark:text-gray-300 space-y-3">
+            <li className="flex items-center gap-2"><HiBookOpen className="text-blue-500 text-xl" /> New book added: <strong>"The Art of React"</strong></li>
+            <li className="flex items-center gap-2"><HiUsers className="text-green-500 text-xl" /> New user registered: <strong>John Doe</strong></li>
+            <li className="flex items-center gap-2"><HiShoppingBag className="text-yellow-500 text-xl" /> Order placed by <strong>Sarah Lee</strong></li>
           </ul>
         </div>
 
         {/* Quick Actions */}
-        <div className="bg-white dark:bg-gray-800 shadow-md rounded-lg p-4">
-          <h2 className="text-lg font-semibold mb-3">⚡ Quick Actions</h2>
-          <div className="space-y-3">
-            <Link to="/admin/upload" className="flex items-center space-x-2 text-blue-600 hover:bg-blue-100 p-2 rounded-lg transition">
-              <HiPlusCircle className="text-xl text-blue-500" /> <span>Upload New Book</span>
-            </Link>
-            <Link to="/admin/manage" className="flex items-center space-x-2 text-green-600 hover:bg-green-100 p-2 rounded-lg transition">
-              <HiBookOpen className="text-xl text-green-500" /> <span>Manage Books</span>
-            </Link>
-            <Link to="/admin/users" className="flex items-center space-x-2 text-yellow-600 hover:bg-yellow-100 p-2 rounded-lg transition">
-              <HiUsers className="text-xl text-yellow-500" /> <span>Manage Users</span>
+        <div className="p-6 rounded-xl shadow-lg backdrop-blur-md bg-white/70 dark:bg-gray-900/80">
+          <h2 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white mb-3">⚡ Quick Actions</h2>
+          <div className="space-y-4">
+            <Link to="/" className="flex items-center space-x-3 bg-green-500 text-white p-3 rounded-lg shadow-md hover:bg-green-600 transition">
+              <HiBookOpen className="text-xl" /> <span>Return to Home</span>
             </Link>
           </div>
         </div>

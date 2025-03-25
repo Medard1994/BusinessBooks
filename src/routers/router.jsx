@@ -44,50 +44,54 @@ const router = createBrowserRouter([
             res.json()
           ),
       },
-      {
-        path: "/admin/dashboard",
-        element: <DashboardLayout />,
-        children: [
-          {
-            path: "/admin/dashboard",
-            element: <PrivateRouter><DashBoard /></PrivateRouter>,
-          },
-          {
-            path: "upload",
-            element: <UploadBooks />,
-          },
-          {
-            path: "manage",
-            element: <ManageBooks />,
-          },
-          {
-            path: "edit-book/:id",
-            element: <EditBooks />,
-            loader: ({ params }) =>
-              fetch(`https://backend-book-5gk7.onrender.com/book/${params.id}`).then((res) =>
-                res.json()
-              ),
-          },
-        ],
-      },
-      {
-        path: "/sign-up",
-        element: <SignUp />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/logout",
-        element: <Logout />,
-      },
+     
+      
       {
         path: "/privateRouter",
         element: <PrivateRouter />,
       },
       
     ],
+    
+  },
+  {
+    path: "/admin/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "/admin/dashboard",
+        element: <PrivateRouter><DashBoard /></PrivateRouter>,
+      },
+      {
+        path: "upload",
+        element: <UploadBooks />,
+      },
+      {
+        path: "manage",
+        element: <ManageBooks />,
+      },
+      {
+        path: "edit-book/:id",
+        element: <EditBooks />,
+        loader: ({ params }) =>
+          fetch(`https://backend-book-5gk7.onrender.com/book/${params.id}`).then((res) =>
+            res.json()
+          ),
+      },
+      
+    ],
+  },
+  {
+    path: "/sign-up",
+    element: <SignUp />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/logout",
+    element: <Logout />,
   },
 ]);
 
