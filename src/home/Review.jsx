@@ -24,7 +24,7 @@ import { Pagination } from 'swiper/modules';
 const Review = () => {
   return (
     <div className="my-12 px-4 lg:px-24">
-        <h3 className="text-5xl font-bold text-center mb-10 leading-snup"> OUR Customers</h3>
+        <h3 className="text-5xl font-bold text-center mb-10 leading-snup"> Founders Company </h3>
         <div className='space-y-6'>
         <Swiper
         slidesPerView={1}

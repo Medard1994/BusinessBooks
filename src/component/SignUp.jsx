@@ -2,7 +2,7 @@ import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 import { useLocation } from 'react-router-dom';
-import googLogo from '../assets/googLogo.png';
+
 
 const SignUp = () => {
     const { createUser, loginWithGoogle } = useContext(AuthContext);
@@ -85,7 +85,7 @@ const SignUp = () => {
                         <div className='flex w-full items-center flex-col mt-5 gap-3'>
                             <button onClick={handleRegister} className='flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition-all duration-300'>
                             <img
-      src="https://www.figma.com/community/resource/abed920a-e3d0-48eb-bfe1-bf263fc25bae/thumbnail"
+      src="https://bpando.org/wp-content/uploads/New-Google-Chrome-Logo-BPO.jpg"
       className="w-6 h-6"
       alt="Google Logo"
     /> Login with Google
