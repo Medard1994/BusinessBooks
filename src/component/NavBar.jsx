@@ -90,13 +90,20 @@ const NavBar = () => {
         </div>
 
         {/* Mobile menu */}
-        <div className={`space-y-4 mt-16 py-7 bg-blue-700 ${isMenuOpen ? "block fixed top-0 right-0 left-0" : "hidden"}`}>
-          {navItems.map(({ link, path }) => (
-            <Link key={path} to={path} className="block text-base text-white uppercase cursor-pointer">
-              {link}
-            </Link>
-          ))}
-        </div>
+        {isMenuOpen && (
+            <div className={`bg-blue-700 mt-16 py-7 px-4 space-y-4`}>
+              {navItems.map(({ link, path }) => (
+                <Link 
+                  key={path} 
+                  to={path} 
+                  className="block text-white text-lg uppercase"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link}
+                </Link>
+              ))}
+            </div>
+          )}
       </nav>
     </header>
   );
