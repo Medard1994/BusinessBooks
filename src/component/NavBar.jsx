@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom"; 
+import { Link, useLocation } from "react-router-dom"; 
 import { AuthContext } from "../context/AuthProvider"; 
 import { FaBlog, FaSignInAlt, FaSignOutAlt } from "react-icons/fa"; 
 import { FaBarsStaggered, FaXmark } from "react-icons/fa6";
@@ -8,6 +8,7 @@ const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const { user } = useContext(AuthContext); 
+  const location = useLocation();  // Get the current location
 
   // Toggle menu
   const toggleMenu = () => {
@@ -51,7 +52,11 @@ const NavBar = () => {
           {/* Nav items for large devices */}
           <ul className="md:flex space-x-12 hidden">
             {navItems.map(({ link, path }) => (
-              <Link key={path} to={path} className="block text-base text-black uppercase cursor-pointer hover:text-blue-700">
+              <Link
+                key={path}
+                to={path}
+                className={`block text-base text-black uppercase cursor-pointer hover:text-blue-700 ${location.pathname === path ? "text-blue-700 font-bold" : ""}`}
+              >
                 {link}
               </Link>
             ))}
@@ -91,19 +96,19 @@ const NavBar = () => {
 
         {/* Mobile menu */}
         {isMenuOpen && (
-            <div className={`bg-blue-700 mt-16 py-7 px-4 space-y-4`}>
-              {navItems.map(({ link, path }) => (
-                <Link 
-                  key={path} 
-                  to={path} 
-                  className="block text-white text-lg uppercase"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {link}
-                </Link>
-              ))}
-            </div>
-          )}
+          <div className={`bg-blue-700 mt-16 py-7 px-4 space-y-4`}>
+            {navItems.map(({ link, path }) => (
+              <Link 
+                key={path} 
+                to={path} 
+                className={`block text-white text-lg uppercase ${location.pathname === path ? "font-bold" : ""}`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link}
+              </Link>
+            ))}
+          </div>
+        )}
       </nav>
     </header>
   );
