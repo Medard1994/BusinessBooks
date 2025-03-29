@@ -4,7 +4,7 @@ import { AuthContext } from '../context/AuthProvider';
 import { useLocation } from 'react-router-dom';
 
 const Login = () => {
-    const { login, loginwithGoogle } = useContext(AuthContext);
+    const { login, loginWithGoogle } = useContext(AuthContext);  // Updated name
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -31,9 +31,8 @@ const Login = () => {
     };
 
     const handleGoogleLogin = () => {
-        loginwithGoogle()
+        loginWithGoogle()  // Corrected function name
             .then((result) => {
-                
                 alert("Login Successful");
                 navigate(from, { replace: true });
             })

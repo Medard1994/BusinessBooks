@@ -8,7 +8,7 @@ import {
     onAuthStateChanged,
     updateProfile
 } from "firebase/auth";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage"; // ✅ Import Firebase Storage
+import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { auth, storage } from "../firebase/firebase.confige.js"; 
 import { GoogleAuthProvider } from "firebase/auth";
 
@@ -21,30 +21,43 @@ const AuthProvider = ({ children }) => {
 
     const createUser = (email, password) => {
         setLoading(true);
-        return createUserWithEmailAndPassword(auth, email, password);
+        return createUserWithEmailAndPassword(auth, email, password)
+            .finally(() => setLoading(false));
     };
 
     const loginWithGoogle = () => {
         setLoading(true);
-        return signInWithPopup(auth, googleProvider);
+        return signInWithPopup(auth, googleProvider)
+            .then((result) => {
+                setUser(result.user);
+            })
+            .catch((error) => {
+                console.error('Error during Google login:', error);
+                setLoading(false);
+            });
     };
 
     const login = (email, password) => {
         setLoading(true);
-        return signInWithEmailAndPassword(auth, email, password);
+        return signInWithEmailAndPassword(auth, email, password)
+            .finally(() => setLoading(false));
     };
 
     const logout = () => {
         setLoading(true);
-        return signOut(auth).then(() => {
-            setUser(null);
-            setLoading(false);
-        });
+        return signOut(auth)
+            .then(() => {
+                setUser(null);
+            })
+            .finally(() => setLoading(false));
     };
 
-    // ✅ Function to update profile picture
     const updateProfilePicture = async (file) => {
         if (!user) return;
+        if (!file || !file.type.startsWith('image/')) {
+            alert('Please upload a valid image file.');
+            return;
+        }
 
         const storageRef = ref(storage, `profile_pictures/${user.uid}`);
         await uploadBytes(storageRef, file);
@@ -70,7 +83,7 @@ const AuthProvider = ({ children }) => {
         loginWithGoogle,
         login,
         logout,
-        updateProfilePicture, // ✅ Add this function
+        updateProfilePicture,
     };
     
     return <AuthContext.Provider value={AuthInfo}>{children}</AuthContext.Provider>;
