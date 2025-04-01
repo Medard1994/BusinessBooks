@@ -14,28 +14,22 @@ import SignUp from "../component/SignUp";
 import Login from "../component/Login";
 import Logout from "../component/Logout";
 import PrivateRouter from "../privateRouter/PrivateRouter";
+import Mustread from "../readMore/Mustread";
+import Thinking from "../readMore/Thinking";
+import Manegement from "../readMore/Manegement";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
-      {
-        path: "/",
-        element: <Home />,
-      },
-      {
-        path: "/shop",
-        element: <Shop />,
-      },
-      {
-        path: "/about",
-        element: <About />,
-      },
-      {
-        path: "/blog",
-        element: <Blog />,
-      },
+      { path: "/", element: <Home /> },
+      { path: "/shop", element: <Shop /> },
+      { path: "/about", element: <About /> },
+      { path: "/blog", element: <Blog /> },
+      { path: "/mustread/:id", element: <Mustread /> },
+      { path: "/thinking/:id", element: <Thinking /> },
+      { path: "/manegement/:id", element: <Manegement /> },
       {
         path: "book/:id",
         element: <SingleBook />,
@@ -44,15 +38,8 @@ const router = createBrowserRouter([
             res.json()
           ),
       },
-     
-      
-      {
-        path: "/privateRouter",
-        element: <PrivateRouter />,
-      },
-      
+      { path: "/privateRouter", element: <PrivateRouter /> },
     ],
-    
   },
   {
     path: "/admin/dashboard",
@@ -62,14 +49,8 @@ const router = createBrowserRouter([
         path: "/admin/dashboard",
         element: <PrivateRouter><DashBoard /></PrivateRouter>,
       },
-      {
-        path: "upload",
-        element: <UploadBooks />,
-      },
-      {
-        path: "manage",
-        element: <ManageBooks />,
-      },
+      { path: "upload", element: <UploadBooks /> },
+      { path: "manage", element: <ManageBooks /> },
       {
         path: "edit-book/:id",
         element: <EditBooks />,
@@ -78,21 +59,11 @@ const router = createBrowserRouter([
             res.json()
           ),
       },
-      
     ],
   },
-  {
-    path: "/sign-up",
-    element: <SignUp />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/logout",
-    element: <Logout />,
-  },
+  { path: "/sign-up", element: <SignUp /> },
+  { path: "/login", element: <Login /> },
+  { path: "/logout", element: <Logout /> },
 ]);
 
 export default router;

@@ -51,10 +51,10 @@ const About = () => {
           Our passionate team consists of business enthusiasts, researchers, and tech experts dedicated to delivering high-quality content and recommendations.
         </p>
         <ul className="list-disc list-inside text-gray-700">
-          <li><strong>John Doe</strong> - Founder & CEO</li>
-          <li><strong>Jane Smith</strong> - Chief Content Officer</li>
-          <li><strong>Michael Johnson</strong> - Lead Developer</li>
-          <li><strong>Emily Davis</strong> - Marketing Strategist</li>
+          <li><strong> Medard</strong> - Founder & CEO</li>
+          <li><strong>Gentille</strong> - Chief Content Officer</li>
+          <li><strong>professeur Landry</strong> - Lead Developer</li>
+          <li><strong> Docter Any Blaising</strong> - Marketing Strategist</li>
         </ul>
 
         <h2 className="text-2xl font-semibold text-gray-800 mt-6">Get Involved</h2>
