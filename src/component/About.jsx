@@ -75,6 +75,7 @@ const About = () => {
         </div>
 
         <p className="text-gray-700 mt-6 text-center font-medium">Join us on this journey of knowledge and business excellence. Happy reading!</p>
+        <a href="https://www.youtube.com/watch?v=PTqQuc8Pb50"><button className="w-[300px] h-auto bg-blue-400 text-white">if you need more click here</button></a>
       </div>
     </div>
   );
