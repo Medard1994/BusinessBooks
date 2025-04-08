@@ -24,12 +24,12 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       { path: "/", element: <Home /> },
-      { path: "/shop", element: <Shop /> },
-      { path: "/about", element: <About /> },
-      { path: "/blog", element: <Blog /> },
-      { path: "/mustread/:id", element: <Mustread /> },
-      { path: "/thinking/:id", element: <Thinking /> },
-      { path: "/manegement/:id", element: <Manegement /> },
+      { path: "shop", element: <Shop /> },
+      { path: "about", element: <About /> },
+      { path: "blog", element: <Blog /> },
+      { path: "mustread/:id", element: <Mustread /> },
+      { path: "thinking/:id", element: <Thinking /> },
+      { path: "manegement/:id", element: <Manegement /> },
       {
         path: "book/:id",
         element: <SingleBook />,
@@ -38,7 +38,6 @@ const router = createBrowserRouter([
             res.json()
           ),
       },
-      { path: "/privateRouter", element: <PrivateRouter /> },
     ],
   },
   {
@@ -46,8 +45,12 @@ const router = createBrowserRouter([
     element: <DashboardLayout />,
     children: [
       {
-        path: "/admin/dashboard",
-        element: <PrivateRouter><DashBoard /></PrivateRouter>,
+        path: "",
+        element: (
+          <PrivateRouter>
+            <DashBoard />
+          </PrivateRouter>
+        ),
       },
       { path: "upload", element: <UploadBooks /> },
       { path: "manage", element: <ManageBooks /> },
@@ -58,6 +61,10 @@ const router = createBrowserRouter([
           fetch(`https://backend-book-5gk7.onrender.com/book/${params.id}`).then((res) =>
             res.json()
           ),
+      },
+      {
+        path: "logout",
+        element: <Logout />,
       },
     ],
   },
